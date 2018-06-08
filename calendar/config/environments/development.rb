@@ -37,13 +37,13 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'calendar-kamil.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:      'camelot729@gmail.com',
-    password:       'Dubolom123',
-    domain:         'localhost:3000',
+    user_name:      ENV["GMAIL_EMAIL"],
+    password:       ENV["GMAIL_PASSWORD"],
+    domain:         'heroku.com',
     address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain,

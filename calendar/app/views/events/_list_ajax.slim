@@ -1,0 +1,17 @@
+
+thead
+  tr
+    th Title
+    th Body
+    th
+
+-@user_events.each do | user_event |
+  tbody
+    tr
+      td = truncate(user_event.title, length:15)
+      td = truncate(user_event.body, length: 15)
+      .btn-group
+        td class="btn btn-outline-success" = link_to 'Show', user_event
+        td class="btn btn-outline-success" = link_to 'Edit', edit_event_path(user_event)
+        - if user_event.user_id == current_user.id
+          td class="btn btn-outline-success" = link_to 'Destroy', user_event, data: {confirm: 'Are you sure?'}, method: :delete

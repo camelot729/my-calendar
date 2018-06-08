@@ -1,0 +1,5 @@
+
+console.log("<%= j render 'list_ajax', user_events: @user_events %>");
+$('#event-items').empty();
+$('#event-items').html("<%= j render 'list_ajax', user_events: @user_events, remote: true %>");
+

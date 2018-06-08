@@ -1,0 +1,14 @@
+I"B(function() {
+  $("event-id-select").on('submit', function() {
+    var callback, params;
+    params = {
+      start_time: $('select[name=event_id]').val()
+    };
+    callback = function() {
+      return console.log("filter-event submitted");
+    };
+    $.get('/list_ajax', params, callback, 'json');
+  });
+
+}).call(this);
+:ET

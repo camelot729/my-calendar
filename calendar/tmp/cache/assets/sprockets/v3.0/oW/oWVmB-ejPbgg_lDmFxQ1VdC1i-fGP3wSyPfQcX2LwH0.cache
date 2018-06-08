@@ -1,0 +1,16 @@
+I"x(function() {
+  $(function() {
+    return $(document).on('submit', '#filter-id', function() {
+      var callback, params;
+      params = {
+        start_time: $('select[name=event_id]').val()
+      };
+      callback = function() {
+        return console.log("filter-id submitted");
+      };
+      $.get('/event_ajax/', params, callback, 'json');
+    });
+  });
+
+}).call(this);
+:ET

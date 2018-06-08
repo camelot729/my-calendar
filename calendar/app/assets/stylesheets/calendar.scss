@@ -1,0 +1,35 @@
+@import "bootstrap";
+#calendar-table .table{
+  //background-image: url(/assets/chalk-board.jpg);
+  //background-repeat: no-repeat;
+  //background-position: center;
+  height:100%;
+  tr {
+    margin: 0 20px;
+    td, th{
+      width: calc(100% / 7);
+    }
+  }
+}
+
+.simple-calendar .next-month{
+  background-color: rgba(196,196,196, 0.7);
+}
+
+.simple-calendar .prev-month{
+  background-color: rgba(196,196,196, 0.7);
+}
+
+.page-link{
+  background-color: #F2EDE7 !important;
+  &:hover{
+    background-color: #A4A19D !important;
+  }
+}
+
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}

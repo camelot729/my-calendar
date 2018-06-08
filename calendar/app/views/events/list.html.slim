@@ -1,0 +1,26 @@
+.col-md-4.offset-md-4
+  h1 Listing my events
+
+.col-md-4.offset-md-4
+  = form_tag('/list_ajax', method: 'get', remote: true, id: 'filter-event') do
+    select#event-id-select for='form-select' name="event_id" class="custom-select"
+      option value = '0' Отфильтровать
+      option value = "future" event_time_id="#{Time.current}"
+        | future event
+      option value = "past" event_time_id="#{Time.current - 2592000}"
+        | past event
+.col-md-6.offset-md-3
+  table.table#event-items
+    = render '/events/list_ajax'
+
+.col-md-8.offset-md-2
+  = month_calendar events: current_user.events do |date, event|
+    .text-rigth
+      - if date == Date.today
+        = link_to date.strftime("%d"), new_event_path(date: date), {style: 'color: orange'}
+      - else
+        = link_to date.strftime("%d"), new_event_path(date: date), {style: 'color: yellow'}
+    - event.each do |e|
+      ul
+        li
+          =< link_to truncate(e.title, length: 10), e

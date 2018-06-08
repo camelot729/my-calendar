@@ -1,0 +1,30 @@
+.col-md-4.offset-md-5
+  h1 Listing events
+.col-md-9.offset-md-1
+  table.table
+    thead
+      tr
+        th Title
+        th Body
+        th Event date
+        th User
+        th
+        th
+        th
+
+    tbody
+      - @events.each do |event|
+        tr
+          td = truncate(event.title, length:15)
+          td = truncate(event.body, length:15)
+          td = event.start_time
+          td = event.user.email
+          td.btn.btn-success = link_to 'Show', event
+          - if event.user_id == current_user.id
+            td.btn.btn-warning = link_to 'Edit', edit_event_path(event)
+          - if event.user_id == current_user.id
+            td.btn.btn-danger = link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete
+
+  br
+
+  = link_to 'New Event', new_event_path

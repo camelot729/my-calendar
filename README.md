@@ -18,7 +18,7 @@ On the event view page, except for the above event fields, you can also see the 
 Gem slim is used for all views.
 
 Additional functionality:
-    1. Login by Google account, I use omniauth-google-oauth2 gem to it
-    2. Filter events: 
-        1. Past event
-        2. Future event
+1. Login by Google account, I use omniauth-google-oauth2 gem to it
+2. Filter events: 
+    1. Past event
+    2. Future event

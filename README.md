@@ -1,5 +1,8 @@
 # Calendar(https://calendar-kamil.herokuapp.com/)
 
+UPD:
+Почему-то логин через гугл работает в Сафари, но не работает в гугл-хроме - чиниться
+
 The following features are implemented in the calendar: viewing of events of one's own and all users in two modes:
 1. Month calendar
 2. List 

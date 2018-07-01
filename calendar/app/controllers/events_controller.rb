@@ -9,11 +9,7 @@ class EventsController < ApplicationController
   end
 
   def list
-
-    p "hihihaha"
-
     @user_events = current_user.events
-    # @user_events = current_user.events.order(start_time: :desc)
 
   end
 
@@ -22,18 +18,14 @@ class EventsController < ApplicationController
       @user_events = current_user.events
     elsif params[:start_time] == 'future'
       @user_events = current_user.events.future_events(params[:start_time]) if params[:start_time]
-      p "1"
       p @user_events
     else
       @user_events = current_user.events.prev_events(params[:start_time]) if params[:start_time]
-      p "2"
       p @user_events
     end
     respond_to do |format|
-      # format.html
       format.js
     end
-    p "hihihahaqweqwe"
   end
 
 

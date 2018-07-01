@@ -18,10 +18,8 @@ class EventsController < ApplicationController
       @user_events = current_user.events
     elsif params[:start_time] == 'future'
       @user_events = current_user.events.future_events(params[:start_time]) if params[:start_time]
-      p @user_events
     else
       @user_events = current_user.events.prev_events(params[:start_time]) if params[:start_time]
-      p @user_events
     end
     respond_to do |format|
       format.js
